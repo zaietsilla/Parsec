@@ -111,7 +111,7 @@ public class SBinaryWriter : IDisposable
         serializable.Write(this);
     }
 
-    public void Write(IList<ISerializable> list, bool lengthPrefixed = true)
+    public void Write<T>(IReadOnlyCollection<T> list, bool lengthPrefixed = true) where T : ISerializable
     {
         if (lengthPrefixed)
         {
