@@ -44,22 +44,20 @@ public abstract class FileBase : IJsonWritable<FileBase>
         FileHelper.WriteFile(path, JsonSerialize(this), Encoding);
     }
 
-    /// <inheritdoc/>
-    public virtual string JsonSerialize(FileBase obj)
+    private static JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings
     {
-        // Create settings with contract resolver to ignore certain properties
-        var settings = new JsonSerializerSettings
+        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+        DefaultValueHandling = DefaultValueHandling.Include,
+        StringEscapeHandling = StringEscapeHandling.EscapeHtml,
+        Formatting = Formatting.Indented,
+        Converters =
         {
-            ContractResolver = new CamelCasePropertyNamesContractResolver(),
-            DefaultValueHandling = DefaultValueHandling.Include,
-            StringEscapeHandling = StringEscapeHandling.EscapeHtml,
-            Formatting = Formatting.Indented
-        };
+            new StringEnumConverter()
+        }
+    };
 
-        // Add enum to string converter
-        settings.Converters.Add(new StringEnumConverter());
-        return JsonConvert.SerializeObject(obj, settings);
-    }
+    /// <inheritdoc/>
+    public virtual string JsonSerialize(FileBase obj) => JsonConvert.SerializeObject(obj, JsonSerializerSettings);
 
     protected abstract void Read(SBinaryReader binaryReader);
 
