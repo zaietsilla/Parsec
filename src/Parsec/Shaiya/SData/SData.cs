@@ -52,8 +52,8 @@ public abstract class SData : FileBase, IEncryptable
         var version = Episode == Episode.EP8 ? SDataVersion.Binary : SDataVersion.Regular;
         var serializationOptions = new BinarySerializationOptions(Episode, Encoding);
 
-        var memoryStream = new MemoryStream();
-        var binaryWriter = new SBinaryWriter(memoryStream, serializationOptions);
+        using var memoryStream = new MemoryStream();
+        using var binaryWriter = new SBinaryWriter(memoryStream, serializationOptions);
         Write(binaryWriter);
 
         var encryptedBuffer = Encrypt(memoryStream.ToArray(), version);
@@ -73,12 +73,12 @@ public abstract class SData : FileBase, IEncryptable
     /// <summary>
     /// Checks if the file is encrypted with the SEED algorithm
     /// </summary>
-    public static bool IsEncrypted(IReadOnlyCollection<byte> buffer)
+    public static bool IsEncrypted(byte[] buffer)
     {
-        if (buffer.Count < SeedSignature.Length)
+        if (buffer.Length < SeedSignature.Length)
             return false;
 
-        var sDataHeader = Encoding.ASCII.GetString(buffer.Take(SeedSignature.Length).ToArray());
+        var sDataHeader = Encoding.ASCII.GetString(buffer, 0, SeedSignature.Length);
         return sDataHeader == SeedSignature;
     }
 
@@ -120,10 +120,12 @@ public abstract class SData : FileBase, IEncryptable
         var outputBuffer = new List<byte>((int)alignmentSize);
         outputBuffer.AddRange(header.GetBytes(version));
 
+        var dataSpan = data.AsSpan();
+
         // Encrypt data in chunks
         for (int i = 0; i < alignmentSize / SeedChunkSize; ++i)
         {
-            var chunk = data.AsSpan().Slice(i * SeedChunkSize, SeedChunkSize).ToArray();
+            var chunk = dataSpan.Slice(i * SeedChunkSize, SeedChunkSize).ToArray();
             Seed.EncryptChunk(chunk, out var encryptedChunk);
             outputBuffer.AddRange(encryptedChunk);
         }
