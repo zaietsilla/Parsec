@@ -119,7 +119,14 @@ public abstract class FileBase : IJsonWritable<FileBase>
         if (!type.GetBaseClassesAndInterfaces().Contains(typeof(FileBase)))
             throw new ArgumentException("Type must be a child of FileBase");
 
-        var instance = (FileBase)Activator.CreateInstance(type);
+        var instanceObject = Activator.CreateInstance(type);
+
+        if (instanceObject == null)
+        {
+            throw new Exception("Cannot create instance of FileBase");
+        }
+
+        var instance = (FileBase)instanceObject;
         instance.Path = path;
         instance.Episode = serializationOptions.Episode;
         instance.Encoding = serializationOptions.Encoding;
@@ -175,7 +182,14 @@ public abstract class FileBase : IJsonWritable<FileBase>
         if (!type.GetBaseClassesAndInterfaces().Contains(typeof(FileBase)))
             throw new ArgumentException("Type must be a child of FileBase");
 
-        var instance = (FileBase)Activator.CreateInstance(type);
+        var instanceObject = Activator.CreateInstance(type);
+
+        if (instanceObject == null)
+        {
+            throw new Exception("Cannot create instance of FileBase");
+        }
+
+        var instance = (FileBase)instanceObject;
         instance.Path = name;
         instance.Episode = serializationOptions.Episode;
         instance.Encoding = serializationOptions.Encoding;
