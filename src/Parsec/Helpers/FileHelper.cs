@@ -11,7 +11,7 @@ public static class FileHelper
     /// <param name="content">The file content</param>
     /// <param name="encoding">File encoding</param>
     /// <param name="backupIfExists">Makes a backup of the file if it already existed</param>
-    public static bool WriteFile(string path, string content, Encoding? encoding = null, bool backupIfExists = false)
+    public static void WriteFile(string path, string content, Encoding? encoding = null, bool backupIfExists = false)
     {
         encoding ??= Encoding.ASCII;
 
@@ -21,23 +21,17 @@ public static class FileHelper
             RenameFile(path, $"{path}.bak");
         }
 
-        string directoryPath = Path.GetDirectoryName(path);
+        var directoryPath = Path.GetDirectoryName(path);
 
         if (!string.IsNullOrEmpty(directoryPath))
         {
             if (!CreateDirectory(directoryPath))
-                return false;
+            {
+                throw new Exception($"Failed to create directory {directoryPath}");
+            }
         }
 
-        try
-        {
-            File.WriteAllText(path, content, encoding);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
+        File.WriteAllText(path, content, encoding);
     }
 
     /// <summary>
@@ -46,7 +40,7 @@ public static class FileHelper
     /// <param name="path">File path</param>
     /// <param name="data">The data byte array</param>
     /// <param name="backupIfExists">Makes a backup of the file if it already existed</param>
-    public static bool WriteFile(string path, IEnumerable<byte> data, bool backupIfExists = false)
+    public static void WriteFile(string path, IEnumerable<byte> data, bool backupIfExists = false)
     {
         if (backupIfExists && File.Exists(path))
         {
@@ -54,24 +48,18 @@ public static class FileHelper
             RenameFile(path, $"{path}.bak");
         }
 
-        string directoryPath = Path.GetDirectoryName(path);
+        var directoryPath = Path.GetDirectoryName(path);
 
         if (!string.IsNullOrEmpty(directoryPath))
         {
             if (!CreateDirectory(directoryPath))
-                return false;
+            {
+                throw new Exception($"Failed to create directory {directoryPath}");
+            }
         }
 
-        try
-        {
-            using var binaryWriter = new BinaryWriter(File.Open(path, FileMode.Create, FileAccess.Write, FileShare.None));
-            binaryWriter.Write(data.ToArray());
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
+        using var binaryWriter = new BinaryWriter(File.Open(path, FileMode.Create, FileAccess.Write, FileShare.None));
+        binaryWriter.Write(data.ToArray());
     }
 
     /// <summary>
@@ -111,21 +99,14 @@ public static class FileHelper
     /// <param name="directoryPath">Directory path</param>
     public static bool CreateDirectory(string directoryPath)
     {
-        if (DirectoryExists(directoryPath))
-            return true;
-
         if (string.IsNullOrEmpty(directoryPath))
             return false;
 
-        try
-        {
-            Directory.CreateDirectory(directoryPath);
+        if (DirectoryExists(directoryPath))
             return true;
-        }
-        catch
-        {
-            return false;
-        }
+
+        Directory.CreateDirectory(directoryPath);
+        return true;
     }
 
     /// <summary>
