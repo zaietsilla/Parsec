@@ -3,7 +3,7 @@ using Parsec.Shaiya.Core;
 
 namespace Parsec.Serialization;
 
-public class SBinaryWriter : IDisposable
+public sealed class SBinaryWriter : IDisposable
 {
     private readonly BinaryWriter _binaryWriter;
     public readonly BinarySerializationOptions SerializationOptions;
