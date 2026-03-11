@@ -28,7 +28,7 @@ public sealed class SmodCollisionMesh : ISerializable
 
     public void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
     }
 }

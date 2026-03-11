@@ -33,6 +33,6 @@ public sealed class Wtr : FileBase
         binaryWriter.Write(Unknown1);
         binaryWriter.Write(Unknown2);
         binaryWriter.Write(Unknown3);
-        binaryWriter.Write(Textures.ToSerializable());
+        binaryWriter.Write(Textures);
     }
 }

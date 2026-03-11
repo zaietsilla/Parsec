@@ -72,7 +72,7 @@ public sealed class Vani : FileBase
         // VaniMesh instances expect the FrameCount to be set as the ExtraOption on the serialization options
         binaryWriter.SerializationOptions.ExtraOption = FrameCount;
 
-        binaryWriter.Write(Meshes.ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(Meshes, lengthPrefixed: false);
         binaryWriter.Write(BoundingBox2);
         binaryWriter.Write(Unknown2);
     }

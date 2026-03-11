@@ -49,6 +49,6 @@ public sealed class Mlx : FileBase
 
         // MlxRecord instances expect the Format to be set as the ExtraOption on the serialization options
         binaryWriter.SerializationOptions.ExtraOption = Format;
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

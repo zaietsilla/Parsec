@@ -18,7 +18,7 @@ public sealed class DualLayerClothes : SData.SData, ICsv
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 
     public static DualLayerClothes FromCsv(string csvPath, Encoding? encoding = null)

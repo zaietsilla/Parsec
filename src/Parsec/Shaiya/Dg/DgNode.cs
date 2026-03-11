@@ -56,7 +56,7 @@ public class DgNode : ISerializable
         binaryWriter.Write(Center);
         binaryWriter.Write(ViewBox);
         binaryWriter.Write(CollisionBox);
-        binaryWriter.Write(MeshGroups.ToSerializable());
+        binaryWriter.Write(MeshGroups);
         binaryWriter.Write((int)CollisionType);
 
         if (CollisionType == DgMeshCollisionType.Collision)

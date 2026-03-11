@@ -23,6 +23,6 @@ public sealed class SvmapNpc : ISerializable
     {
         binaryWriter.Write(NpcType);
         binaryWriter.Write(NpcId);
-        binaryWriter.Write(Positions.ToSerializable());
+        binaryWriter.Write(Positions);
     }
 }

@@ -18,7 +18,7 @@ public class SkillGroup : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         var recordCount = GetRecordCountPerGroup(binaryWriter.SerializationOptions.Episode);
-        binaryWriter.Write(SkillDefinitions.Take(recordCount).ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(SkillDefinitions.Take(recordCount).ToList(), lengthPrefixed: false);
     }
 
     private int GetRecordCountPerGroup(Episode episode)

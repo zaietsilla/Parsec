@@ -19,6 +19,6 @@ public sealed class SeffRecord : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Id);
-        binaryWriter.Write(Effects.ToSerializable());
+        binaryWriter.Write(Effects);
     }
 }

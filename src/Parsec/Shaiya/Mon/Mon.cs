@@ -43,6 +43,6 @@ public sealed class Mon : FileBase
         binaryWriter.SerializationOptions.ExtraOption = Format;
 
         binaryWriter.Write(Signature, isLengthPrefixed: false, includeStringTerminator: false);
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

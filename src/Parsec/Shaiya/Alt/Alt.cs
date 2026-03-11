@@ -24,6 +24,6 @@ public sealed class Alt : FileBase
     protected override void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Header, isLengthPrefixed: false, includeStringTerminator: false);
-        binaryWriter.Write(Animations.ToSerializable());
+        binaryWriter.Write(Animations);
     }
 }

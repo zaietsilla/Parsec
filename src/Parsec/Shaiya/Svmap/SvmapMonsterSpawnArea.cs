@@ -23,6 +23,6 @@ public sealed class SvmapMonsterSpawnArea : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Area);
-        binaryWriter.Write(Monsters.ToSerializable());
+        binaryWriter.Write(Monsters);
     }
 }

@@ -19,6 +19,6 @@ public class DgMeshGroup : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(TextureIndex);
-        binaryWriter.Write(Meshes.ToSerializable());
+        binaryWriter.Write(Meshes);
     }
 }

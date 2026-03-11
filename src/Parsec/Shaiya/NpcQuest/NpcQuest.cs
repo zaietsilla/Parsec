@@ -65,20 +65,20 @@ public class NpcQuest : SData.SData
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Merchants.ToSerializable());
-        binaryWriter.Write(Gatekeepers.ToSerializable());
-        binaryWriter.Write(Blacksmiths.ToSerializable());
-        binaryWriter.Write(PvpManagers.ToSerializable());
-        binaryWriter.Write(GamblingHouses.ToSerializable());
-        binaryWriter.Write(Warehouses.ToSerializable());
-        binaryWriter.Write(NormalNpcs.ToSerializable());
-        binaryWriter.Write(Guards.ToSerializable());
-        binaryWriter.Write(Animals.ToSerializable());
-        binaryWriter.Write(Apprentices.ToSerializable());
-        binaryWriter.Write(GuildMasters.ToSerializable());
-        binaryWriter.Write(DeadNpcs.ToSerializable());
-        binaryWriter.Write(CombatCommanders.ToSerializable());
-        binaryWriter.Write(QuestLinks.ToSerializable(), lengthPrefixed: false);
-        binaryWriter.Write(Quests.ToSerializable());
+        binaryWriter.Write(Merchants);
+        binaryWriter.Write(Gatekeepers);
+        binaryWriter.Write(Blacksmiths);
+        binaryWriter.Write(PvpManagers);
+        binaryWriter.Write(GamblingHouses);
+        binaryWriter.Write(Warehouses);
+        binaryWriter.Write(NormalNpcs);
+        binaryWriter.Write(Guards);
+        binaryWriter.Write(Animals);
+        binaryWriter.Write(Apprentices);
+        binaryWriter.Write(GuildMasters);
+        binaryWriter.Write(DeadNpcs);
+        binaryWriter.Write(CombatCommanders);
+        binaryWriter.Write(QuestLinks, lengthPrefixed: false);
+        binaryWriter.Write(Quests);
     }
 }

@@ -32,6 +32,6 @@ public sealed class _3deFrame : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Keyframe);
-        binaryWriter.Write(VertexFrames.ToSerializable(), false);
+        binaryWriter.Write(VertexFrames, false);
     }
 }

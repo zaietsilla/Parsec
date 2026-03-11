@@ -65,7 +65,7 @@ public sealed class VaniMesh : ISerializable
         }
 
         binaryWriter.Write(TextureName);
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Faces);
         binaryWriter.Write(Vertices.Count);
 
         for (var frame = 0; frame < frameCount; frame++)

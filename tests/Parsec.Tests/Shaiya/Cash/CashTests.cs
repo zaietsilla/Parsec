@@ -56,12 +56,12 @@ public class CashTests
         var dbItemSellBinaryWriter = new SBinaryWriter(itemSellMemoryStream, serializationOptions);
         var csvItemSellBinaryWriter = new SBinaryWriter(csvItemSellMemoryStream, serializationOptions);
 
-        foreach (var record in dbItemSell.Records.ToSerializable())
+        foreach (var record in dbItemSell.Records)
         {
             record.Write(dbItemSellBinaryWriter);
         }
 
-        foreach (var record in csvItemSell.Records.ToSerializable())
+        foreach (var record in csvItemSell.Records)
         {
             record.Write(csvItemSellBinaryWriter);
         }

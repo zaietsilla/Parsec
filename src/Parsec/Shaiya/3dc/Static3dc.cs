@@ -56,7 +56,7 @@ public sealed class Static3dc : FileBase
         binaryWriter.SerializationOptions.Episode = Episode;
 
         binaryWriter.Write(version);
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
     }
 }

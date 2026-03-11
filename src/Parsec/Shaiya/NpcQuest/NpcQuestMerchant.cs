@@ -24,7 +24,7 @@ public class NpcQuestMerchant : NpcQuestBaseNpc, ISerializable
         WriteBaseNpcFirstSegment(binaryWriter);
         binaryWriter.Write((byte)MerchantType);
         WriteBaseNpcSecondSegment(binaryWriter);
-        binaryWriter.Write(Items.ToSerializable());
+        binaryWriter.Write(Items);
         WriteBaseNpcThirdSegment(binaryWriter);
     }
 }

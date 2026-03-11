@@ -18,7 +18,7 @@ public sealed class Item : SData.SData, ICsv
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(ItemGroups.ToSerializable());
+        binaryWriter.Write(ItemGroups);
     }
 
     /// <summary>

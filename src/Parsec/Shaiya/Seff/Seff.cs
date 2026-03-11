@@ -31,6 +31,6 @@ public sealed class Seff : FileBase
 
         binaryWriter.Write(Format);
         binaryWriter.Write(TimeStamp);
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

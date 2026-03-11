@@ -23,6 +23,6 @@ public sealed class Env : FileBase
     protected override void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Header.Take(HeaderLength).ToString(), isLengthPrefixed: false, includeStringTerminator: false);
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

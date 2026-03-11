@@ -56,9 +56,9 @@ public sealed class Eft : FileBase
         binaryWriter.SerializationOptions.ExtraOption = Format;
 
         binaryWriter.Write(signature, isLengthPrefixed: false, includeStringTerminator: false);
-        binaryWriter.Write(Meshes.ToSerializable());
-        binaryWriter.Write(Textures.ToSerializable());
-        binaryWriter.Write(Effects.ToSerializable());
-        binaryWriter.Write(EffectSequences.ToSerializable());
+        binaryWriter.Write(Meshes);
+        binaryWriter.Write(Textures);
+        binaryWriter.Write(Effects);
+        binaryWriter.Write(EffectSequences);
     }
 }

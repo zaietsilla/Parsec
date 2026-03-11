@@ -20,7 +20,7 @@ public sealed class Monster : SData.SData, ICsv
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 
     /// <summary>

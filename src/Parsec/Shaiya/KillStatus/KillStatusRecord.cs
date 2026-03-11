@@ -39,6 +39,6 @@ public sealed class KillStatusRecord : ISerializable
         binaryWriter.Write((byte)Faction);
         binaryWriter.Write(BlessValue);
         binaryWriter.Write(Index);
-        binaryWriter.Write(Bonuses.Take(6).ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(Bonuses.Take(6).ToList(), lengthPrefixed: false);
     }
 }

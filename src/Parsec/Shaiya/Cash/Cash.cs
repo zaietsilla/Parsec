@@ -17,6 +17,6 @@ public sealed class Cash : SData.SData
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Products.ToSerializable());
+        binaryWriter.Write(Products);
     }
 }

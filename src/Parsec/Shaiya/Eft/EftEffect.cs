@@ -225,15 +225,15 @@ public class EftEffect : ISerializable
             binaryWriter.Write(Unknown28);
         }
 
-        binaryWriter.Write(ColorFrames.ToSerializable());
-        binaryWriter.Write(OpacityFrames.ToSerializable());
-        binaryWriter.Write(EffectSub3List.ToSerializable());
+        binaryWriter.Write(ColorFrames);
+        binaryWriter.Write(OpacityFrames);
+        binaryWriter.Write(EffectSub3List);
 
         binaryWriter.Write(Unknown29);
         binaryWriter.Write(Unknown30);
         binaryWriter.Write(Unknown31);
         binaryWriter.Write(Unknown32);
 
-        binaryWriter.Write(Textures.ToSerializable());
+        binaryWriter.Write(Textures);
     }
 }

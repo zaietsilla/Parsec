@@ -42,7 +42,7 @@ public sealed class AniBone : ISerializable
     {
         binaryWriter.Write(ParentBoneIndex);
         binaryWriter.Write(Matrix);
-        binaryWriter.Write(RotationFrames.ToSerializable());
-        binaryWriter.Write(TranslationFrames.ToSerializable());
+        binaryWriter.Write(RotationFrames);
+        binaryWriter.Write(TranslationFrames);
     }
 }

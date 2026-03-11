@@ -15,6 +15,6 @@ public sealed class ItemGroup : ISerializable
 
     public void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(ItemDefinitions.ToSerializable());
+        binaryWriter.Write(ItemDefinitions);
     }
 }

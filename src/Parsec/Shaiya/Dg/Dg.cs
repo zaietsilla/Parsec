@@ -34,7 +34,7 @@ public class Dg : FileBase
     protected override void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(BoundingBox);
-        binaryWriter.Write(TextureNames.ToSerializable());
+        binaryWriter.Write(TextureNames);
         binaryWriter.Write(LightmapCount);
 
         binaryWriter.Write(1);

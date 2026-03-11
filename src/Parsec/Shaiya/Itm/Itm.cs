@@ -89,6 +89,6 @@ public sealed class Itm : FileBase
             binaryWriter.Write(textureName);
         }
 
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

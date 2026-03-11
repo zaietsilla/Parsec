@@ -64,8 +64,8 @@ public sealed class _3dc : FileBase
         binaryWriter.SerializationOptions.Episode = Episode;
 
         binaryWriter.Write(version);
-        binaryWriter.Write(Bones.ToSerializable());
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Bones);
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
     }
 }

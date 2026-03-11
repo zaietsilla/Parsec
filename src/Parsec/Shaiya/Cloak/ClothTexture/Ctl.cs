@@ -20,6 +20,6 @@ public sealed class Ctl : FileBase
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Textures.ToSerializable());
+        binaryWriter.Write(Textures);
     }
 }

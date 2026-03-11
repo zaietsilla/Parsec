@@ -19,6 +19,6 @@ public sealed class EftEffectSequence : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(Name);
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

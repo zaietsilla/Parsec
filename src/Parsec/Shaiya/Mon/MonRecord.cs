@@ -132,8 +132,8 @@ public sealed class MonRecord : ISerializable
             binaryWriter.Write(AttachEffect);
         }
 
-        binaryWriter.Write(Objects.ToSerializable());
+        binaryWriter.Write(Objects);
         binaryWriter.Write(Height);
-        binaryWriter.Write(Effects.ToSerializable());
+        binaryWriter.Write(Effects);
     }
 }

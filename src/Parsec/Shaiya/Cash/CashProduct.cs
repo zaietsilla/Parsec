@@ -45,7 +45,7 @@ public sealed class CashProduct : ISerializable
         binaryWriter.Write(Bag);
         binaryWriter.Write(Icon);
         binaryWriter.Write(Cost);
-        binaryWriter.Write(Items.Take(24).ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(Items.Take(24).ToList(), lengthPrefixed: false);
 
         // Manually add double string terminator on the end of each string.
         binaryWriter.Write(ProductName + "\0");

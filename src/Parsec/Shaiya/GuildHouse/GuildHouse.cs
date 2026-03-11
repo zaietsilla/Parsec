@@ -36,7 +36,7 @@ public sealed class GuildHouse : SData.SData
         binaryWriter.Write(Unknown);
         binaryWriter.Write(HousePrice);
         binaryWriter.Write(ServicePrice);
-        binaryWriter.Write(NpcInfoList.ToSerializable(), lengthPrefixed: false);
-        binaryWriter.Write(Npcs.ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(NpcInfoList, lengthPrefixed: false);
+        binaryWriter.Write(Npcs, lengthPrefixed: false);
     }
 }

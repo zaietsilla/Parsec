@@ -32,6 +32,6 @@ public sealed class WldNpc : ISerializable
         binaryWriter.Write(TypeId);
         binaryWriter.Write(Position);
         binaryWriter.Write(Orientation);
-        binaryWriter.Write(PatrolPositions.ToSerializable());
+        binaryWriter.Write(PatrolPositions);
     }
 }

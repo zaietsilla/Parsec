@@ -36,8 +36,8 @@ public abstract class BinarySData<TRecord> : SData, ICsv where TRecord : IBinary
         }
 
         binaryWriter.Write(Header);
-        binaryWriter.Write(Fields.ToSerializable());
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Fields);
+        binaryWriter.Write(Records);
     }
 
     public static T FromCsv<T>(string csvPath, Encoding? encoding = null) where T : BinarySData<TRecord>, new()

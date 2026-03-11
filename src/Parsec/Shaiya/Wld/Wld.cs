@@ -275,45 +275,45 @@ public sealed class Wld : FileBase
             binaryWriter.Write(MapSize);
             binaryWriter.Write(TerrainHeightMap);
             binaryWriter.Write(TerrainTextureMap);
-            binaryWriter.Write(TerrainLayers.ToSerializable());
+            binaryWriter.Write(TerrainLayers);
         }
 
         binaryWriter.Write(LayoutName);
 
-        binaryWriter.Write(BuildingAssets.ToSerializable());
-        binaryWriter.Write(BuildingInstances.ToSerializable());
-        binaryWriter.Write(ShapeAssets.ToSerializable());
-        binaryWriter.Write(ShapeInstances.ToSerializable());
-        binaryWriter.Write(TreeAssets.ToSerializable());
-        binaryWriter.Write(TreeInstances.ToSerializable());
-        binaryWriter.Write(GrassAssets.ToSerializable());
-        binaryWriter.Write(GrassInstances.ToSerializable());
-        binaryWriter.Write(PrimaryVaniAssets.ToSerializable());
-        binaryWriter.Write(PrimaryVaniInstances.ToSerializable());
-        binaryWriter.Write(SecondaryVaniAssets.ToSerializable());
-        binaryWriter.Write(SecondaryVaniInstances.ToSerializable());
-        binaryWriter.Write(DungeonAssets.ToSerializable());
-        binaryWriter.Write(DungeonInstances.ToSerializable());
-        binaryWriter.Write(ManiAssets.ToSerializable());
-        binaryWriter.Write(ManiInstances.ToSerializable());
+        binaryWriter.Write(BuildingAssets);
+        binaryWriter.Write(BuildingInstances);
+        binaryWriter.Write(ShapeAssets);
+        binaryWriter.Write(ShapeInstances);
+        binaryWriter.Write(TreeAssets);
+        binaryWriter.Write(TreeInstances);
+        binaryWriter.Write(GrassAssets);
+        binaryWriter.Write(GrassInstances);
+        binaryWriter.Write(PrimaryVaniAssets);
+        binaryWriter.Write(PrimaryVaniInstances);
+        binaryWriter.Write(SecondaryVaniAssets);
+        binaryWriter.Write(SecondaryVaniInstances);
+        binaryWriter.Write(DungeonAssets);
+        binaryWriter.Write(DungeonInstances);
+        binaryWriter.Write(ManiAssets);
+        binaryWriter.Write(ManiInstances);
         binaryWriter.Write(EffectFileName);
-        binaryWriter.Write(EffectInstances.ToSerializable());
+        binaryWriter.Write(EffectInstances);
 
         binaryWriter.Write(Unknown1);
         binaryWriter.Write(Unknown2);
         binaryWriter.Write(Unknown3);
 
-        binaryWriter.Write(ObjectAssets.ToSerializable());
-        binaryWriter.Write(ObjectInstances.ToSerializable());
-        binaryWriter.Write(MusicAssets.ToSerializable());
-        binaryWriter.Write(MusicZoneInstances.ToSerializable());
-        binaryWriter.Write(SoundEffectAssets.ToSerializable());
-        binaryWriter.Write(Zones.ToSerializable());
-        binaryWriter.Write(SoundEffectInstances.ToSerializable());
-        binaryWriter.Write(WldMonsterRestrictedZones.ToSerializable());
-        binaryWriter.Write(PortalInstances.ToSerializable());
-        binaryWriter.Write(SpawnInstances.ToSerializable());
-        binaryWriter.Write(NamedAreaInstances.ToSerializable());
+        binaryWriter.Write(ObjectAssets);
+        binaryWriter.Write(ObjectInstances);
+        binaryWriter.Write(MusicAssets);
+        binaryWriter.Write(MusicZoneInstances);
+        binaryWriter.Write(SoundEffectAssets);
+        binaryWriter.Write(Zones);
+        binaryWriter.Write(SoundEffectInstances);
+        binaryWriter.Write(WldMonsterRestrictedZones);
+        binaryWriter.Write(PortalInstances);
+        binaryWriter.Write(SpawnInstances);
+        binaryWriter.Write(NamedAreaInstances);
 
         var npcCount = NpcInstances.Count + NpcInstances.Sum(npc => npc.PatrolPositions.Count);
         binaryWriter.Write(npcCount);

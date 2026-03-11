@@ -61,6 +61,6 @@ public sealed class Ani : FileBase
         binaryWriter.Write(StartKeyframe);
         binaryWriter.Write(EndKeyframe);
         binaryWriter.Write((ushort)Bones.Count);
-        binaryWriter.Write(Bones.ToSerializable(), false);
+        binaryWriter.Write(Bones, false);
     }
 }

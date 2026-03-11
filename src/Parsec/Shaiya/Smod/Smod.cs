@@ -64,8 +64,8 @@ public sealed class Smod : FileBase
         binaryWriter.Write(Center);
         binaryWriter.Write(Radius);
         binaryWriter.Write(ViewBox);
-        binaryWriter.Write(TexturedObjects.ToSerializable());
+        binaryWriter.Write(TexturedObjects);
         binaryWriter.Write(CollisionBox);
-        binaryWriter.Write(CollisionObjects.ToSerializable());
+        binaryWriter.Write(CollisionObjects);
     }
 }

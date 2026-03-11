@@ -60,9 +60,9 @@ public sealed class _3de : FileBase
         binaryWriter.SerializationOptions.ExtraOption = Vertices.Count;
 
         binaryWriter.Write(Texture);
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
         binaryWriter.Write(MaxKeyframe);
-        binaryWriter.Write(Frames.ToSerializable());
+        binaryWriter.Write(Frames);
     }
 }

@@ -30,7 +30,7 @@ public sealed class _3do : FileBase
     protected override void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(TextureName, includeStringTerminator: false);
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
     }
 }

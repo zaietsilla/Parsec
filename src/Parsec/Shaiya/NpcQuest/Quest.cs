@@ -301,11 +301,11 @@ public class Quest : ISerializable
         binaryWriter.Write(StartNpcId);
         binaryWriter.Write(StartItemType);
         binaryWriter.Write(StartItemId);
-        binaryWriter.Write(RequiredItems.Take(RequiredItemCount).ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(RequiredItems.Take(RequiredItemCount).ToList(), lengthPrefixed: false);
         binaryWriter.Write(EndType);
         binaryWriter.Write(EndNpcType);
         binaryWriter.Write(EndNpcId);
-        binaryWriter.Write(FarmItems.Take(FarmItemCount).ToSerializable(), lengthPrefixed: false);
+        binaryWriter.Write(FarmItems.Take(FarmItemCount).ToList(), lengthPrefixed: false);
         binaryWriter.Write(PvpKillCount);
         binaryWriter.Write(RequiredMobId1);
         binaryWriter.Write(RequiredMobCount1);
@@ -318,7 +318,7 @@ public class Quest : ISerializable
 
         if (episode <= Episode.EP5)
         {
-            binaryWriter.Write(Results.Take(resultCount).ToSerializable(), lengthPrefixed: false);
+            binaryWriter.Write(Results.Take(resultCount).ToList(), lengthPrefixed: false);
 
             binaryWriter.Write(InitialDescription, includeStringTerminator: false);
             binaryWriter.Write(QuestWindowSummary, includeStringTerminator: false);
@@ -332,7 +332,7 @@ public class Quest : ISerializable
         }
         else
         {
-            binaryWriter.Write(Results.Take(resultCount).ToSerializable(), lengthPrefixed: false);
+            binaryWriter.Write(Results.Take(resultCount).ToList(), lengthPrefixed: false);
 
             if (episode < Episode.EP8)
             {

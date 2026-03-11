@@ -23,7 +23,7 @@ public class DgMesh : ISerializable
     public void Write(SBinaryWriter binaryWriter)
     {
         binaryWriter.Write(LightmapIndex);
-        binaryWriter.Write(Vertices.ToSerializable());
-        binaryWriter.Write(Faces.ToSerializable());
+        binaryWriter.Write(Vertices);
+        binaryWriter.Write(Faces);
     }
 }

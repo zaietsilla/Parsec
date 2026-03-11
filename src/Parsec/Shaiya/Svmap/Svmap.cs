@@ -56,11 +56,11 @@ public sealed class Svmap : FileBase
         binaryWriter.Write(MapSize);
         binaryWriter.Write(MapMask.ToArray());
         binaryWriter.Write(CellSize);
-        binaryWriter.Write(Ladders.ToSerializable());
-        binaryWriter.Write(MonsterAreas.ToSerializable());
-        binaryWriter.Write(Npcs.ToSerializable());
-        binaryWriter.Write(Portals.ToSerializable());
-        binaryWriter.Write(Spawns.ToSerializable());
-        binaryWriter.Write(NamedAreas.ToSerializable());
+        binaryWriter.Write(Ladders);
+        binaryWriter.Write(MonsterAreas);
+        binaryWriter.Write(Npcs);
+        binaryWriter.Write(Portals);
+        binaryWriter.Write(Spawns);
+        binaryWriter.Write(NamedAreas);
     }
 }

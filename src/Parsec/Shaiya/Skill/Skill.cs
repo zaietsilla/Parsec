@@ -25,7 +25,7 @@ public sealed class Skill : SData.SData, ICsv
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(SkillGroups.ToSerializable());
+        binaryWriter.Write(SkillGroups);
     }
 
     public static Skill FromCsv(string csvFilePath, Episode episode = Episode.EP5, Encoding? encoding = null)

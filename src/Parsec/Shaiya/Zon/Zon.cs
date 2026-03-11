@@ -27,6 +27,6 @@ public sealed class Zon : FileBase
 
         // Format is used as the ExtraOption on ZonRecord serialization
         binaryWriter.SerializationOptions.ExtraOption = Format;
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }

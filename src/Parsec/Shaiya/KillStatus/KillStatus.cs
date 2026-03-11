@@ -18,6 +18,6 @@ public sealed class KillStatus : SData.SData
 
     protected override void Write(SBinaryWriter binaryWriter)
     {
-        binaryWriter.Write(Records.ToSerializable());
+        binaryWriter.Write(Records);
     }
 }
