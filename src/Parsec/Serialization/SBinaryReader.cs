@@ -273,7 +273,7 @@ public sealed class SBinaryReader : IDisposable
     /// <param name="count">Object count</param>
     public IList<T> ReadList<T>(int count) where T : ISerializable, new()
     {
-        var list = new List<T>();
+        var list = new List<T>(count);
 
         for (var i = 0; i < count; i++)
         {
