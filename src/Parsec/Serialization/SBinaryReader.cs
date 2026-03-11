@@ -10,7 +10,7 @@ public sealed class SBinaryReader : IDisposable
 {
     private BinaryReader _binaryReader;
     private Stream? _innerStream;
-    public readonly BinarySerializationOptions SerializationOptions;
+    public BinarySerializationOptions SerializationOptions { get; }
 
     public SBinaryReader(Stream stream, BinarySerializationOptions serializationOptions)
     {
