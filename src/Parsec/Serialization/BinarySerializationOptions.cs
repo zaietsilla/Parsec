@@ -3,6 +3,10 @@ using Parsec.Common;
 
 namespace Parsec.Serialization;
 
+/// <summary>
+/// Defines the options to be used when serializing or deserializing a file
+/// <remarks>Although this should be immutable, properties change while reading some formats because that's how the original authors designed them.</remarks>
+/// </summary>
 public class BinarySerializationOptions
 {
     public BinarySerializationOptions()
