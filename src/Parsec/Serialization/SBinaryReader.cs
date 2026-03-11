@@ -9,10 +9,12 @@ namespace Parsec.Serialization;
 public sealed class SBinaryReader : IDisposable
 {
     private BinaryReader _binaryReader;
+    private Stream? _innerStream;
     public readonly BinarySerializationOptions SerializationOptions;
 
     public SBinaryReader(Stream stream, BinarySerializationOptions serializationOptions)
     {
+        _innerStream = stream;
         _binaryReader = new BinaryReader(stream);
         SerializationOptions = serializationOptions;
     }
@@ -28,6 +30,7 @@ public sealed class SBinaryReader : IDisposable
     public SBinaryReader(string filePath, BinarySerializationOptions serializationOptions)
     {
         var fileStream = File.OpenRead(filePath);
+        _innerStream = fileStream;
         _binaryReader = new BinaryReader(fileStream);
         SerializationOptions = serializationOptions;
     }
@@ -35,14 +38,18 @@ public sealed class SBinaryReader : IDisposable
     public SBinaryReader(byte[] buffer, BinarySerializationOptions serializationOptions)
     {
         var memoryStream = new MemoryStream(buffer);
-        _binaryReader = new BinaryReader(memoryStream);
+        _innerStream = memoryStream;
+        _binaryReader = new BinaryReader(memoryStream, Encoding.Default, leaveOpen: false);
         SerializationOptions = serializationOptions;
     }
 
     public void ResetBuffer(byte[] buffer)
     {
         _binaryReader.Dispose();
+        _innerStream?.Dispose();
+
         var memoryStream = new MemoryStream(buffer);
+        _innerStream = memoryStream;
         _binaryReader = new BinaryReader(memoryStream);
     }
 
@@ -302,5 +309,6 @@ public sealed class SBinaryReader : IDisposable
     public void Dispose()
     {
         _binaryReader.Dispose();
+        _innerStream?.Dispose();
     }
 }
