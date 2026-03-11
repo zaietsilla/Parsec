@@ -12,16 +12,17 @@ public sealed class Sah : FileBase
     /// <summary>
     /// Dictionary of files that can be accessed by path
     /// </summary>
-    public Dictionary<string, SFile> FileIndex = new(StringComparer.InvariantCultureIgnoreCase);
+    public Dictionary<string, SFile> FileIndex { get; } = new(StringComparer.InvariantCultureIgnoreCase);
 
     /// <summary>
     /// Dictionary of folders that can be accessed by path
     /// </summary>
-    public Dictionary<string, SDirectory> DirectoryIndex = new(StringComparer.InvariantCultureIgnoreCase);
+    public Dictionary<string, SDirectory> DirectoryIndex { get; } = new(StringComparer.InvariantCultureIgnoreCase);
 
     [JsonConstructor]
     public Sah()
     {
+        RootDirectory = new SDirectory();
     }
 
     /// <summary>
