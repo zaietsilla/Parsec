@@ -44,7 +44,7 @@ public abstract class FileBase : IJsonWritable<FileBase>
         FileHelper.WriteFile(path, JsonSerialize(this), Encoding);
     }
 
-    private static JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings
+    private static readonly JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings
     {
         ContractResolver = new CamelCasePropertyNamesContractResolver(),
         DefaultValueHandling = DefaultValueHandling.Include,
